@@ -4,6 +4,7 @@ var path = require('path')
 var fs = require('fs')
 
 var FILENAME = 'snapshot.json'
+var UPDATE = process.env.UPDATE_SNAPSHOT
 
 module.exports = snapshot
 
@@ -33,7 +34,14 @@ function snapshot (_assert, html, cache) {
   }
 
   cache = cache || {}
+
+  if (UPDATE) {
+    cache[testname] = html
+    var json = JSON.stringify(cache, null, 2)
+    fs.writeFileSync(filename, json)
+  }
+
   var expected = cache[testname] || ''
-  _assert.ok(expected, 'assert-snapshot: snapshot found for "' + testname + '"')
+  _assert.ok(expected, 'snapshot found for "' + testname + '"')
   assertHtml(_assert, html, expected)
 }

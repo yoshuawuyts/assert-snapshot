@@ -2,7 +2,9 @@
 [![npm version][2]][3] [![build status][4]][5]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Snapshot UI testing for tape tests
+Snapshot UI testing for tape tests. Inspired by [Jest snapshot
+testing](https://facebook.github.io/jest/docs/snapshot-testing.html), but
+implemented as a module instead of a custom runtime.
 
 ## Usage
 ```js
@@ -24,6 +26,43 @@ function myComponent () {
   `
 }
 ```
+
+Outputs
+
+```tap
+TAP version 13
+# my cool component
+ok 1 snapshot found for "my cool component"
+ok 2 <section>
+ok 3 ·· Hello planet
+ok 4 </section>
+
+1..4
+# tests 4
+# pass  4
+
+# ok
+
+```
+
+## Updating snapshots
+By default no snapshot is saved. Set the `UPDATE_SNAPSHOT=true` env variable to
+update the snapshot and save it to `snapshot.json`. Each snapshot is saved
+using the name of the test as the key, so make sure test names are unique.
+
+```sh
+$ UPDATE_SNAPSHOT=true node example.js
+```
+
+## API
+### `snapshot(assert, html, [cache])`
+Assert a string of HTML using a custom assert function. Takes an optional cache
+object that contains the expected values. Use this if snapshot tests become I/O
+bound.
+
+## See Also
+- [yoshuawuyts/assert-html](https://github.com/yoshuawuyts/assert-html)
+- [thlorenz/spok](https://github.com/thlorenz/spok)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
