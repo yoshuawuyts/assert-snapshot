@@ -2,7 +2,7 @@
   "name": "assert-snapshot",
   "description": "Snapshot UI testing for tape tests",
   "repository": "yoshuawuyts/assert-snapshot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "start": "node .",
