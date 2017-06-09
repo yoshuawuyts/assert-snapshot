@@ -1,0 +1,33 @@
+{
+  "name": "assert-snapshot",
+  "description": "Snapshot UI testing for tape tests",
+  "repository": "yoshuawuyts/assert-snapshot",
+  "version": "1.0.0",
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "start": "node .",
+    "test": "standard && npm run deps"
+  },
+  "dependencies": {
+    "assert-html": "^1.1.0",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.8.0",
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
+  },
+  "keywords": [
+    "tap",
+    "snapshot",
+    "ui",
+    "screenshot",
+    "generate",
+    "tape",
+    "test",
+    "interface",
+    "html",
+    "dom"
+  ],
+  "license": "MIT"
+}
