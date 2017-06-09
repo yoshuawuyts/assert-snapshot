@@ -9,8 +9,7 @@
     "test": "standard && npm run deps"
   },
   "dependencies": {
-    "assert-html": "^1.1.0",
-    "mkdirp": "^0.5.1"
+    "assert-html": "^1.1.0"
   },
   "devDependencies": {
     "dependency-check": "^2.8.0",
